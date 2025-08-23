@@ -2,103 +2,102 @@
 <html lang="sv">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Godispriset.se – Snart kan du jämföra lösviktsgodispriser</title>
-  <meta name="description" content="Snart kan du jämföra lösviktsgodispriser i din stad. Anmäl dig för att bli först att testa!" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Godispriset.se – Snart kan du jämföra lösviktsgodispriser i din stad</title>
+  <meta name="description" content="Snart kan du jämföra lösviktsgodispriser i din stad. Anmäl dig för att bli först att testa!">
   <style>
     :root {
-      --bg: #f7fafc;
-      --text: #0f172a;
-      --muted: #475569;
-      --btn: #ec4899;
-      --btn-hover: #db2777;
-      --card: #ffffff;
-      --radius: 16px;
-      --shadow: 0 12px 30px rgba(15, 23, 42, .08);
+      --bg:#f7fafc;
+      --text:#0f172a;
+      --muted:#475569;
+      --btn:#ec4899;
+      --btn-hover:#db2777;
+      --card:#ffffff;
+      --radius:16px;
+      --shadow:0 12px 30px rgba(15,23,42,.08);
     }
 
-    * { box-sizing: border-box }
-    html, body { height: 100% }
-
-    body {
-      margin: 0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 32px;
+    *{box-sizing:border-box}
+    html,body{height:100%;}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      display:flex; 
+      align-items:center; 
+      justify-content:center;
+      padding:32px;
     }
 
-    .wrap {
-      max-width: 820px;
-      width: 100%;
-      text-align: center;
-      background: var(--card);
-      border-radius: var(--radius);
-      padding: 48px 28px;
-      box-shadow: var(--shadow);
+    .wrap{
+      max-width:820px; 
+      width:100%;
+      text-align:center;
+      background:var(--card);
+      border-radius:var(--radius);
+      padding:48px 28px;
+      box-shadow:var(--shadow);
     }
 
     .logo {
       max-width: 220px;
       margin: 0 auto 20px;
-      display: block;
+      display:block;
     }
 
-    h1 {
-      font-size: 1.8rem;
-      margin-bottom: 16px;
-      color: #3b82f6;
+    h1{
+      font-size:1.75rem;
+      margin-bottom:12px;
+      background: linear-gradient(90deg, #ec4899, #8b5cf6, #3b82f6, #10b981);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 800;
     }
 
-    p {
-      font-size: 1.1rem;
-      margin-bottom: 24px;
+    p{margin-bottom:24px;}
+
+    form{
+      display:flex;
+      gap:8px;
+      justify-content:center;
+      margin-bottom:20px;
     }
 
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      max-width: 400px;
-      margin: 0 auto;
+    input[type="email"]{
+      padding:12px 16px;
+      border:1px solid #cbd5e1;
+      border-radius:var(--radius);
+      font-size:1rem;
+      flex:1;
+      max-width:320px;
     }
 
-    input[type="email"] {
-      padding: 12px;
-      border: 1px solid #cbd5e1;
-      border-radius: 8px;
-      font-size: 1rem;
-      width: 100%;
-    }
-
-    button {
-      padding: 12px;
-      background: var(--btn);
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-size: 1rem;
-      cursor: pointer;
+    button{
+      background:var(--btn);
+      border:none;
+      color:white;
+      padding:12px 20px;
+      border-radius:var(--radius);
+      font-size:1rem;
+      cursor:pointer;
     }
 
     button:hover {
-      background: var(--btn-hover);
+      background:var(--btn-hover);
     }
 
     small {
-      display: block;
-      margin-top: 12px;
-      color: var(--muted);
-      font-size: .875rem;
+      display:block;
+      margin-top:12px;
+      color:var(--muted);
+      font-size:.875rem;
     }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <!-- NY LOGGA -->
+    <!-- Logotyp -->
     <img src="logo.final.png" alt="Godispriset.se logotyp" class="logo" />
 
     <h1>Snart kan du jämföra lösviktsgodispriser i din stad</h1>
@@ -109,7 +108,7 @@
       <button type="submit">Meddela mig</button>
     </form>
 
-    <small>Vi hatar skräppost: Din mejladress är trygg.</small>
+    <small>Vi hatar skräppost. Din mejladress är trygg.</small>
     <small>© 2025 Godispriset.se</small>
   </div>
 </body>
