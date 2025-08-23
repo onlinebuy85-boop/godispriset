@@ -7,11 +7,11 @@
   <meta name="description" content="Snart kan du jämföra lösviktsgodispriser i din stad" />
   <style>
     :root {
-      --bg:#f7fafc;       /* ljus, ren bakgrund */
+      --bg:#f7fafc;       /* ljus bakgrund */
       --text:#0f172a;     /* nästan svart */
       --muted:#475569;    /* sekundär text */
-      --btn:#0f172a;      /* mörk knapp */
-      --btn-hover:#111827;
+      --btn:#ec4899;      /* rosa knapp */
+      --btn-hover:#db2777;
       --card:#ffffff;
       --radius:16px;
       --shadow:0 12px 30px rgba(15,23,42,.08);
@@ -50,6 +50,10 @@
     h1 {
       font-size:2rem;
       margin-bottom:16px;
+      background: linear-gradient(90deg, #ec4899, #8b5cf6, #06b6d4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight:800;
     }
 
     p {
@@ -61,11 +65,17 @@
     input {
       padding:14px 18px;
       font-size:1rem;
-      border:1px solid #cbd5e1;
+      border:2px solid #cbd5e1;
       border-radius:var(--radius);
       width:100%;
       max-width:320px;
       margin-bottom:16px;
+      transition: all 0.2s ease;
+    }
+    input:focus {
+      border-color: var(--btn);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(236,72,153,0.3);
     }
 
     button {
@@ -76,6 +86,8 @@
       border:none;
       border-radius:var(--radius);
       cursor:pointer;
+      font-weight:600;
+      transition: background 0.2s;
     }
     button:hover {
       background:var(--btn-hover);
