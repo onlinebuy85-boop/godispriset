@@ -2,37 +2,35 @@
 <html lang="sv">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Godispriset.se – Snart kan du jämföra lösviktsgodispriser i din stad</title>
-  <meta name="description" content="Snart kan du jämföra lösviktsgodispriser i din stad. Anmäl dig för att bli först att testa!">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Godispriset.se – Snart kan du jämföra lösviktsgodispriser</title>
+  <meta name="description" content="Snart kan du jämföra lösviktsgodispriser i din stad. Anmäl dig för att bli först att testa!" />
+
   <style>
-    :root {
-      --bg:#f7fafc;
-      --text:#0f172a;
-      --muted:#475569;
-      --btn:#ec4899;
-      --btn-hover:#db2777;
+    :root{
+      --bg:#f7fafc;           /* ljus bakgrund */
+      --text:#0f172a;         /* nästan svart */
+      --muted:#475569;        /* sekundär text */
+      --btn:#ff4eb3;          /* knappfärg */
+      --btn-hover:#e60073;    /* knapp hover */
       --card:#ffffff;
       --radius:16px;
       --shadow:0 12px 30px rgba(15,23,42,.08);
     }
 
     *{box-sizing:border-box}
-    html,body{height:100%;}
+    html,body{height:100%}
     body{
       margin:0;
-      font-family: ui-sans-serif, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      font-family: ui-sans-serif, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
       background:var(--bg);
       color:var(--text);
-      display:flex; 
-      align-items:center; 
-      justify-content:center;
+      display:flex; align-items:center; justify-content:center;
       padding:32px;
     }
 
     .wrap{
-      max-width:820px; 
-      width:100%;
+      max-width:820px; width:100%;
       text-align:center;
       background:var(--card);
       border-radius:var(--radius);
@@ -40,54 +38,60 @@
       box-shadow:var(--shadow);
     }
 
-    .logo {
+    .logo{
       max-width: 220px;
-      margin: 0 auto 20px;
+      margin: 0 auto 18px;
       display:block;
+      height:auto;
     }
 
-    h1{
-      font-size:1.75rem;
-      margin-bottom:12px;
-      background: linear-gradient(90deg, #ec4899, #8b5cf6, #3b82f6, #10b981);
+    /* Färgglad rubrik – samma känsla som Bild 2 */
+    .gradient-text{
+      font-weight:800;
+      line-height:1.1;
+      margin:0 0 10px;
+      font-size: clamp(28px, 6vw, 40px);
+      background: linear-gradient(90deg, #ff4eb3 0%, #c94cff 50%, #0099ff 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      font-weight: 800;
+      background-clip:text;
+      color: transparent;
     }
 
-    p{margin-bottom:24px;}
+    p{margin:10px 0 22px; color:var(--muted)}
 
-    form{
-      display:flex;
-      gap:8px;
-      justify-content:center;
-      margin-bottom:20px;
-    }
+    form{max-width:520px; margin:0 auto 14px}
 
     input[type="email"]{
-      padding:12px 16px;
-      border:1px solid #cbd5e1;
-      border-radius:var(--radius);
-      font-size:1rem;
-      flex:1;
-      max-width:320px;
+      width:100%;
+      padding:14px 16px;
+      border:2px solid #e5e7eb;
+      border-radius:12px;
+      font-size:16px;
+      outline:none;
+      transition:border-color .15s ease;
+      background:#fff;
     }
+    input[type="email"]::placeholder{color:#94a3b8}
+    input[type="email"]:focus{border-color:#a78bfa}
 
     button{
+      margin-top:14px;
+      width:100%;
+      padding:14px 16px;
+      border:0;
+      border-radius:12px;
+      font-weight:700;
+      font-size:16px;
+      color:#fff;
       background:var(--btn);
-      border:none;
-      color:white;
-      padding:12px 20px;
-      border-radius:var(--radius);
-      font-size:1rem;
       cursor:pointer;
+      transition:background .15s ease, transform .04s ease;
     }
+    button:hover{background:var(--btn-hover)}
+    button:active{transform:translateY(1px)}
 
-    button:hover {
-      background:var(--btn-hover);
-    }
-
-    small {
+    small{
       display:block;
       margin-top:12px;
       color:var(--muted);
@@ -97,10 +101,10 @@
 </head>
 <body>
   <div class="wrap">
-    <!-- Logotyp -->
+    <!-- Logga (byt filnamn om din logga heter något annat) -->
     <img src="logo.final.png" alt="Godispriset.se logotyp" class="logo" />
 
-    <h1>Snart kan du jämföra lösviktsgodispriser i din stad</h1>
+    <h1 class="gradient-text">Snart kan du jämföra lösviktsgodispriser i din stad</h1>
     <p>Anmäl dig för att bli först att testa!</p>
 
     <form>
@@ -108,7 +112,7 @@
       <button type="submit">Meddela mig</button>
     </form>
 
-    <small>Vi hatar skräppost. Din mejladress är trygg.</small>
+    <small>Vi hatar skräppost: Din mejladress är trygg.</small>
     <small>© 2025 Godispriset.se</small>
   </div>
 </body>
