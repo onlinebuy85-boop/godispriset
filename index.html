@@ -2,118 +2,130 @@
 <html lang="sv">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Godispriset.se – Snart kan du jämföra lösviktsgodispriser</title>
-  <meta name="description" content="Snart kan du jämföra lösviktsgodispriser i din stad. Anmäl dig för att bli först att testa!" />
-
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Godispriset.se – Jämför lösviktsgodispriser</title>
+  <meta name="description" content="Jämför aktuella lösviktsgodispriser i Eskilstuna. Signa upp för att få nyheter och kampanjer först!" />
   <style>
     :root{
-      --bg:#f7fafc;           /* ljus bakgrund */
-      --text:#0f172a;         /* nästan svart */
-      --muted:#475569;        /* sekundär text */
-      --btn:#ff4eb3;          /* knappfärg */
-      --btn-hover:#e60073;    /* knapp hover */
+      --bg:#f7fafc;
+      --text:#0f172a;
+      --muted:#475569;
+      --btn:#ff2d8f;
+      --btn-hover:#e11d74;
       --card:#ffffff;
+      --mint:#e6fff5; /* mild mintgrön */
       --radius:16px;
       --shadow:0 12px 30px rgba(15,23,42,.08);
     }
-
     *{box-sizing:border-box}
-    html,body{height:100%}
     body{
       margin:0;
-      font-family: ui-sans-serif, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      font-family: ui-sans-serif, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       background:var(--bg);
       color:var(--text);
-      display:flex; align-items:center; justify-content:center;
       padding:32px;
     }
-
     .wrap{
-      max-width:820px; width:100%;
+      max-width:820px; margin:0 auto 32px;
       text-align:center;
-      background:var(--card);
+      background:var(--mint);
       border-radius:var(--radius);
       padding:48px 28px;
       box-shadow:var(--shadow);
     }
-
-    .logo{
-      max-width: 220px;
-      margin: 0 auto 18px;
-      display:block;
-      height:auto;
-    }
-
-    /* Färgglad rubrik – samma känsla som Bild 2 */
-    .gradient-text{
+    .logo{max-width:200px;margin:0 auto 18px;display:block}
+    h1{
+      font-size:clamp(26px,5vw,38px);
+      margin:0 0 12px;
       font-weight:800;
-      line-height:1.1;
-      margin:0 0 10px;
-      font-size: clamp(28px, 6vw, 40px);
-      background: linear-gradient(90deg, #ff4eb3 0%, #c94cff 50%, #0099ff 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip:text;
-      color: transparent;
+      background:linear-gradient(90deg,#ff2d8f,#00a0ff);
+      -webkit-background-clip:text;background-clip:text;
+      color:transparent;
     }
-
-    p{margin:10px 0 22px; color:var(--muted)}
-
-    form{max-width:520px; margin:0 auto 14px}
-
+    p.lead{margin:0 0 18px;color:var(--muted);font-size:1.1rem}
+    form{display:flex;gap:8px;justify-content:center;max-width:500px;margin:0 auto 14px}
     input[type="email"]{
-      width:100%;
-      padding:14px 16px;
-      border:2px solid #e5e7eb;
-      border-radius:12px;
-      font-size:16px;
-      outline:none;
-      transition:border-color .15s ease;
-      background:#fff;
+      flex:1;padding:12px 16px;border:1px solid #cbd5e1;border-radius:var(--radius);
+      font-size:1rem;
     }
-    input[type="email"]::placeholder{color:#94a3b8}
-    input[type="email"]:focus{border-color:#a78bfa}
-
     button{
-      margin-top:14px;
-      width:100%;
-      padding:14px 16px;
-      border:0;
-      border-radius:12px;
-      font-weight:700;
-      font-size:16px;
-      color:#fff;
-      background:var(--btn);
-      cursor:pointer;
-      transition:background .15s ease, transform .04s ease;
+      padding:12px 18px;background:var(--btn);color:#fff;border:none;border-radius:var(--radius);
+      font-weight:700;cursor:pointer;transition:.15s;
     }
     button:hover{background:var(--btn-hover)}
-    button:active{transform:translateY(1px)}
+    small{display:block;margin-top:12px;color:var(--muted);font-size:.85rem}
 
-    small{
-      display:block;
-      margin-top:12px;
-      color:var(--muted);
-      font-size:.875rem;
+    /* Prislista */
+    .prices{
+      max-width:820px;margin:0 auto;
+      background:#fff;border-radius:var(--radius);
+      box-shadow:var(--shadow);padding:24px;
+      margin-top:24px;
     }
+    .prices h2{margin:0 0 8px;font-size:1.5rem}
+    .prices p{margin:0 0 16px;color:var(--muted);font-size:.95rem}
+    table{width:100%;border-collapse:collapse;font-size:.975rem}
+    th,td{padding:12px 14px;border-bottom:1px solid #e5e7eb}
+    th{text-align:left;background:#f8fafc}
+    td:last-child{text-align:left}
+    .badge{
+      background:#ecfdf5;color:#047857;
+      padding:3px 8px;border-radius:999px;font-size:.8rem
+    }
+    .note{font-size:.9rem;color:#475569}
   </style>
 </head>
 <body>
+
+  <!-- Hero / Signup -->
   <div class="wrap">
-    <!-- Logga (byt filnamn om din logga heter något annat) -->
     <img src="logo.final.png" alt="Godispriset.se logotyp" class="logo" />
-
-    <h1 class="gradient-text">Snart kan du jämföra lösviktsgodispriser i din stad</h1>
-    <p>Anmäl dig för att bli först att testa!</p>
-
+    <h1>Snart kan du jämföra lösviktsgodispriser i din stad</h1>
+    <p class="lead">Signa upp för att få nyheter, kampanjer och bli först att testa.</p>
     <form>
-      <input type="email" placeholder="E-postadress" required />
-      <button type="submit">Meddela mig</button>
+      <input type="email" placeholder="Din e-postadress" required />
+      <button type="submit">👉 Ja, jag vill vara med</button>
     </form>
+    <small>Vi hatar skräppost: Din adress är trygg.</small>
 
-    <small>Vi hatar skräppost: Din mejladress är trygg.</small>
-    <small>© 2025 Godispriset.se</small>
+    <!-- Prislista direkt under signup -->
+    <div class="prices">
+      <h2>Aktuella lösviktspriser i Eskilstuna</h2>
+      <p>Senast uppdaterad: <strong>2025-09-12</strong> • Källa: samtal med butiker</p>
+      <div style="overflow:auto;">
+        <table>
+          <thead>
+            <tr>
+              <th>Butik</th>
+              <th>Pris kr/kg</th>
+              <th>Villkor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Willys</td>
+              <td><strong>89,90</strong></td>
+              <td><span class="note">Inga särskilda villkor</span></td>
+            </tr>
+            <tr>
+              <td>ICA Kvantum</td>
+              <td><strong>79,90</strong></td>
+              <td><span class="note">Gäller vid köp över 50 kr</span></td>
+            </tr>
+            <tr>
+              <td>Coop Forum</td>
+              <td><strong>69,90</strong></td>
+              <td><span class="badge">Maxpris under helgen</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
+
+  <footer style="max-width:820px;margin:20px auto 0;text-align:center;color:#94a3b8;font-size:.85rem">
+    © 2025 Godispriset.se
+  </footer>
+
 </body>
 </html>
