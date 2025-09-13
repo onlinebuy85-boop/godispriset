@@ -106,14 +106,20 @@
     </p>
 
     <!-- Besöksräknare -->
-    <div style="margin-top:20px; font-size:0.95rem; color:#475569; text-align:center;">
-      👀 Antal besökare: 
-      <img src="https://hitwebcounter.com/counter/counter.php?page=12859964&style=0006&nbdigits=5&type=page&initCount=0" 
-           title="Besöksräknare" alt="web counter" border="0" />
-    </div>
-  </main>
+<!-- Textbaserad besöksräknare -->
+<div style="margin-top:20px; font-size:0.95rem; color:#475569; text-align:center;">
+  👀 Antal besökare: <span id="visits">...</span>
+</div>
 
-  <script>
+<script>
+  // Använder countapi.xyz för att lagra antal besök
+  fetch('https://api.countapi.xyz/hit/godispriset.se/visits')
+    .then(res => res.json())
+    .then(res => {
+      document.getElementById('visits').textContent = res.value;
+    });
+</script>
+
     // Skriv ut dagens datum
     const d = new Date();
     const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
