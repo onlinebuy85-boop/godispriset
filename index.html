@@ -3,127 +3,254 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Godispriset.se – Jämför lösviktsgodispriser i din stad</title>
+  <title>Godispriset.se – Jämför lösviktsgodispriser nära dig</title>
+  <meta name="description" content="Snart kan du jämföra lösviktsgodispriser i din stad. Tipsa oss om fler butiker och kampanjer!" />
+  <link rel="icon" href="logo-final.png" />
+
   <style>
     :root{
-      --bg:#f7fafc;
-      --text:#0f172a;
-      --muted:#475569;
-      --card:#ffffff;
+      --bg:#f7fafc;          /* ljus bakgrund */
+      --text:#0f172a;        /* nästan svart */
+      --muted:#475569;       /* sekundär text */
+      --brand:#f40e8c;       /* rosa knapp/marker */
+      --brand-2:#06b6d4;     /* cyan för gradientrubriker */
+      --pill:#111827;        /* mörka badges */
+      --card:#ffffff;        /* kortbakgrund */
+      --green:#16a34a;       /* grön badge */
+      --orange:#f59e0b;      /* orange badge */
       --radius:16px;
       --shadow:0 12px 30px rgba(15,23,42,.08);
-      --pink:#ff2f92;
-      --blue:#2388ff;
-      --mint:#b8f9d3;
-      --yellow:#ffd24d;
-      --purple:#7a55ff;
-      --aqua:#19d3c5;
     }
-    * { box-sizing: border-box }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
     body{
       margin:0;
-      font-family: ui-sans-serif, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      background: var(--bg);
-      color: var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background:var(--bg);
+      color:var(--text);
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
       padding:32px;
+    }
+
+    .wrap{
+      width:100%;
+      max-width:980px;
+      margin:auto;
+      background:var(--card);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:28px;
+    }
+
+    /* topp-logga */
+    .brand{
       display:flex;
       align-items:center;
+      gap:12px;
       justify-content:center;
+      margin-bottom:10px;
     }
-    .wrap{
-      max-width: 980px;
-      width:100%;
+    .brand img{height:44px; width:auto; display:block}
+    .brand span{
+      font-weight:800;
+      font-size:1.25rem;
+      background:linear-gradient(90deg,var(--brand),var(--brand-2));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+      letter-spacing:.2px;
+    }
+
+    /* hero */
+    .hero{
       text-align:center;
-      background: var(--bg);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 40px 28px;
+      padding:8px 10px 18px;
+      border-bottom:1px dashed rgba(15,23,42,.08);
+      margin-bottom:18px;
     }
-    .logo{ max-width:200px; margin:0 auto 14px; display:block }
-    .chip{ display:inline-block; background:#fff; color:var(--muted); border-radius:999px; padding:8px 14px; font-size:.9rem; margin-bottom:8px; }
-    h1{ font-size:clamp(26px, 4.2vw, 40px); margin:8px auto 10px; font-weight:800; background:linear-gradient(90deg, var(--pink), var(--blue)); -webkit-background-clip:text; background-clip:text; color:transparent;}
-    p.lead{ margin:0 auto 18px; color:var(--muted); max-width:600px; font-size:1.05rem; }
-    form{ display:flex; gap:10px; justify-content:center; margin:0 auto 24px; flex-wrap:wrap; max-width:560px; }
-    input[type="email"]{ flex:1 1 320px; padding:14px; border-radius:12px; border:1px solid rgba(15,23,42,.12); font-size:1rem; }
-    button{ padding:14px 18px; border-radius:12px; border:0; cursor:pointer; font-weight:700; color:#fff; background:var(--pink); box-shadow:0 8px 18px rgba(255,47,146,.25); }
-    .prices{ margin:20px auto; display:grid; grid-template-columns: repeat(12, 1fr); gap:14px; }
-    .card{ grid-column: span 12; background:#fff; border-radius:18px; padding:18px 16px; text-align:left; position:relative; box-shadow:var(--shadow);}
-    .card::before{ content:""; position:absolute; inset:0 auto 0 0; width:10px; background:linear-gradient(180deg, var(--pink), var(--purple)); }
-    .card.blue::before{ background:linear-gradient(180deg, var(--blue), var(--aqua)); }
-    .card.yellow::before{ background:linear-gradient(180deg, var(--yellow), #ff9f1a); }
-    .card.purple::before{ background:linear-gradient(180deg, var(--purple), var(--pink)); }
-    .store{ font-weight:800; margin-bottom:4px; }
-    .pill{ display:inline-block; padding:4px 8px; border-radius:999px; font-size:.8rem; background:#fff; border:1px solid rgba(15,23,42,.1); color:var(--muted); }
-    .price{ font-size:1.4rem; font-weight:900; }
-    .note{ color:var(--muted); font-size:.9rem; margin-top:4px; }
-    .foot{ margin-top:14px; color:var(--muted); font-size:.9rem; }
-    .copy{ display:block; margin-top:6px; color:#708090; }
-    @media(min-width:580px){ .card{ grid-column: span 6 } }
-    @media(min-width:940px){ .card{ grid-column: span 3 } }
+    h1{
+      margin:10px 0 4px;
+      font-size:clamp(1.6rem,3.2vw,2.2rem);
+      line-height:1.2;
+      font-weight:900;
+      background:linear-gradient(90deg,var(--brand),var(--brand-2));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+    .lead{color:var(--muted); margin:8px 0 16px}
+
+    form{
+      display:flex; gap:8px; justify-content:center; flex-wrap:wrap;
+      margin:6px auto 6px;
+      max-width:520px;
+    }
+    input[type="email"]{
+      flex:1 1 260px;
+      height:42px;
+      padding:0 14px;
+      border:1px solid #e5e7eb;
+      border-radius:10px;
+      outline:none;
+      color:var(--text);
+      background:#fff;
+    }
+    button{
+      height:42px; padding:0 16px;
+      background:var(--brand);
+      color:#fff; border:none; border-radius:10px; font-weight:700; cursor:pointer;
+    }
+    button:hover{filter:brightness(.95)}
+
+    /* listan */
+    .list{display:grid; gap:12px; margin-top:6px}
+    .card{
+      border:1px solid #eef2f7;
+      border-radius:14px;
+      padding:14px;
+      display:grid;
+      grid-template-columns: 1fr auto;
+      align-items:center;
+      background:#fff;
+    }
+    .store{
+      font-weight:800; letter-spacing:.2px;
+    }
+    .note{
+      color:var(--muted); font-size:.95rem; margin-top:2px;
+    }
+    .price{
+      font-weight:800;
+      font-size:1.25rem;
+      color:#111827;
+    }
+    .badges{display:flex; gap:6px; flex-wrap:wrap; margin-top:6px}
+    .pill{
+      background:#111827; color:#fff; padding:4px 8px; border-radius:999px; font-size:.78rem; font-weight:700
+    }
+    .pill.green{background:var(--green)}
+    .pill.orange{background:var(--orange)}
+    .pill.rose{background:var(--brand)}
+
+    .foot{
+      margin-top:18px; padding-top:12px;
+      border-top:1px dashed rgba(15,23,42,.08);
+      color:var(--muted); font-size:.95rem; text-align:center
+    }
+    .copy{display:block; margin-top:6px}
+    .counter{margin-top:10px; font-size:.95rem; text-align:center; color:var(--muted)}
   </style>
 </head>
 <body>
-  <main class="wrap">
-    <img src="logo-final.png" alt="Godispriset.se logotyp" class="logo" />
-    <span class="chip">Godispriset.se • Beta snart live</span>
-    <h1>Snart kan du jämföra lösviktsgodispriser i din stad</h1>
-    <p class="lead">Anmäl dig för att bli först att testa!</p>
+  <div class="wrap">
+    <!-- Brand -->
+    <div class="brand">
+      <img src="logo-final.png" alt="Godispriset.se logotyp" />
+      <span>Godispriset.se</span>
+    </div>
 
-    <form>
-      <input type="email" placeholder="E-postadress" required />
-      <button type="submit">Meddela mig</button>
-    </form>
+    <!-- Hero / ingress -->
+    <section class="hero">
+      <h1>Snart kan du jämföra lösviktsgodispriser i din stad</h1>
+      <p class="lead">Anmäl dig för att bli först att testa!</p>
 
-    <h2 style="margin:18px 0 8px; font-size:1.25rem;">📊 Aktuella priser i Eskilstuna</h2>
+      <form onsubmit="event.preventDefault(); alert('Tack! Vi hör av oss när betan öppnar.');">
+        <input type="email" placeholder="E-postadress" required />
+        <button type="submit">Meddela mig</button>
+      </form>
+      <small style="color:var(--muted)">Vi hatar skräppost. Din mejladress är trygg.</small>
+    </section>
 
-    <section class="prices">
+    <!-- Prislista -->
+    <section class="list" aria-label="Dagens priser">
+      <!-- Willys -->
       <article class="card">
-        <div class="store">Willys <span class="pill">Alltid</span></div>
+        <div>
+          <div class="store">Willys</div>
+          <div class="badges">
+            <span class="pill green">Alltidpris</span>
+          </div>
+          <div class="note">Uppgifter verifierade via telefon.</div>
+        </div>
         <div class="price">89,90 kr/kg</div>
-        <div class="note">Ordinarie pris.</div>
       </article>
-      <article class="card blue">
-        <div class="store">ICA Maxi</div>
+
+      <!-- ICA Maxi -->
+      <article class="card">
+        <div>
+          <div class="store">ICA Maxi</div>
+          <div class="badges">
+            <span class="pill">Ordinarie</span>
+          </div>
+          <div class="note">Uppgifter verifierade via telefon.</div>
+        </div>
         <div class="price">99,90 kr/kg</div>
-        <div class="note">Ordinarie pris.</div>
       </article>
-      <article class="card yellow">
-        <div class="store">Coop Forum <span class="pill">Fredag</span></div>
-        <div class="price">69,90 kr/kg</div>
-        <div class="note">Medlemspris, max 2 kg. Ordinarie 109 kr/kg.</div>
+
+      <!-- Coop Forum -->
+      <article class="card">
+        <div>
+          <div class="store">Coop Forum</div>
+          <div class="badges">
+            <span class="pill">Ordinarie</span>
+            <span class="pill orange">Kampanj på fredagar</span>
+          </div>
+          <div class="note">Skyltat i butik: fredagskampanj, ordinarie övriga dagar.</div>
+        </div>
+        <div class="price">109,00 kr/kg</div>
       </article>
-      <article class="card purple">
-        <div class="store">ICA Ekängen <span class="pill">Fredag</span></div>
+
+      <!-- ICA Ekängen -->
+      <article class="card">
+        <div>
+          <div class="store">ICA Ekängen</div>
+          <div class="badges">
+            <span class="pill">Ordinarie 109 kr/kg</span>
+            <span class="pill orange">Fredag 79,90 kr/kg</span>
+            <span class="pill rose">Minst 50 kr köp</span>
+          </div>
+          <div class="note">Uppgifter verifierade via telefon.</div>
+        </div>
         <div class="price">79,90 kr/kg</div>
-        <div class="note">Kräver köp för minst 50 kr. Ordinarie 109 kr/kg.</div>
       </article>
     </section>
 
+    <!-- Footer -->
     <p class="foot">
-      Senast uppdaterat: <span id="updated"></span><br>
+      Senast uppdaterat: <span id="updated">-</span><br>
       Tipsa oss om fler butiker? Mejla <a href="mailto:info@godispriset.se">info@godispriset.se</a>
       <span class="copy">© 2025 Godispriset.se</span>
     </p>
 
     <!-- Besöksräknare -->
-<!-- Textbaserad besöksräknare -->
-<div style="margin-top:20px; font-size:0.95rem; color:#475569; text-align:center;">
-  👀 Antal besökare: <span id="visits">...</span>
-</div>
+    <div class="counter">
+      👀 Antal besökare: <span id="visits">…</span>
+    </div>
+  </div>
 
-<script>
-  // Använder countapi.xyz för att lagra antal besök
-  fetch('https://api.countapi.xyz/hit/godispriset.se/visits')
-    .then(res => res.json())
-    .then(res => {
-      document.getElementById('visits').textContent = res.value;
-    });
-</script>
+  <script>
+    // Sätt "senast uppdaterat" till lokal tid (svenska)
+    (function(){
+      const el = document.getElementById('updated');
+      try{
+        const now = new Date();
+        const fmt = new Intl.DateTimeFormat('sv-SE', { dateStyle:'medium', timeStyle:'short' });
+        el.textContent = fmt.format(now);
+      }catch(e){ el.textContent = new Date().toLocaleString('sv-SE'); }
+    })();
 
-    // Skriv ut dagens datum
-    const d = new Date();
-    const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
-    document.getElementById("updated").textContent = d.toLocaleDateString('sv-SE', options);
+    // Enkel text-besöksräknare via CountAPI
+    // Byt nyckel nedan om du vill nollställa: godispriset.se/mainpage
+    fetch('https://api.countapi.xyz/hit/godispriset.se/mainpage')
+      .then(r => r.json())
+      .then(res => {
+        const num = (res && typeof res.value === 'number') ? res.value : 1;
+        document.getElementById('visits').textContent = num.toLocaleString('sv-SE');
+      })
+      .catch(()=>{ document.getElementById('visits').textContent = '–'; });
   </script>
 </body>
 </html>
